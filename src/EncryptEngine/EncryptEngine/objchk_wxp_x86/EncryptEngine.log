@@ -1,0 +1,39 @@
+﻿生成启动时间为 2015-3-23 22:25:41。
+     1>项目“D:\EncryptEngine\EncryptEngine\EncryptEngine.vcxproj”在节点 2 上(build 个目标)。
+     1>Build:
+         call C:\WINDDK\7600.16385.1\bin\setenv.bat C:\WINDDK\7600.16385.1 chk wxp
+         cd /d D:\EncryptEngine\EncryptEngine\
+         build
+         OACR monitor running already
+         path contains nonexistant c:\program files\microsoft visual studio 10.0\common7\tools\bin, removing
+         path contains nonexistant c:\windows\syswow64, removing
+         BUILD: Compile and Link for x86
+         
+         BUILD: Loading c:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Computing Include file dependencies:
+         
+         BUILD: Start time: Mon Mar 23 22:25:43 2015
+         BUILD: Examining d:\encryptengine\encryptengine directory for files to compile.
+         
+             d:\encryptengine\encryptengine 
+         
+         Invalidating OACR warning log for 'root:x86chk'
+         BUILD: Saving c:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Compiling and Linking d:\encryptengine\encryptengine directory
+         
+         Configuring OACR for 'root:x86chk' - <OACR on>
+         _NT_TARGET_VERSION SET TO WINXP
+         BUILD: Finish time: Mon Mar 23 22:25:47 2015
+         BUILD: Done
+         
+         
+         
+             0 files compiled - 2 Warnings
+         
+     1>已完成生成项目“D:\EncryptEngine\EncryptEngine\EncryptEngine.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:05.60

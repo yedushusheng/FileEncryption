@@ -1,0 +1,18 @@
+﻿Build started 2015/3/8 星期日 下午 11:10:45.
+     1>Project "F:\研究生课件\vs2010\fileencrypt\blowfishencryption\Enc_Blowfish\Enc_Blowfish.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Enc_Blowfish.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Blowfish.cpp
+         Blowfish.cpp
+       Lib:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"Debug\Enc_Blowfish.lib" /NOLOGO Debug\Blowfish.obj
+         Enc_Blowfish.vcxproj -> F:\研究生课件\vs2010\fileencrypt\blowfishencryption\Enc_Blowfish\Debug\Enc_Blowfish.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\Enc_Blowfish.unsuccessfulbuild".
+         Touching "Debug\Enc_Blowfish.lastbuildstate".
+     1>Done Building Project "F:\研究生课件\vs2010\fileencrypt\blowfishencryption\Enc_Blowfish\Enc_Blowfish.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.84

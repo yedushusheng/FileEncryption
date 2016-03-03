@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+<OACRDEFECTCOUNT>1</OACRDEFECTCOUNT>
+<OACRERRORCOUNT>0</OACRERRORCOUNT>
+<DEFECT _seq="1"><OACRCOMPUNIT>d:\encryptengine\encryptengine\main.c</OACRCOMPUNIT><SFA><LINE>9560</LINE><COLUMN>0</COLUMN><FILENAME>ntifs.h</FILENAME><FILEPATH>c:\winddk\7600.16385.1\inc\ddk\</FILEPATH></SFA><DEFECTCODE>20051</DEFECTCODE><DESCRIPTION>PREfast - Error processing 'main.c' : error C2118: negative subscript (try ' oacr log root:amd64fre ' for details)</DESCRIPTION><FUNCTION></FUNCTION><FUNCLINE></FUNCLINE><PATH/></DEFECT>
+</DEFECTS>

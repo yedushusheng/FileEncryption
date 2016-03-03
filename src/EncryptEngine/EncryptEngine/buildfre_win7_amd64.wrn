@@ -1,0 +1,27 @@
+1>warnings in directory d:\encryptengine\encryptengine
+1>d:\encryptengine\encryptengine\common.h(14) : warning C4005: 'PAGE_SIZE' : macro redefinition
+1>d:\encryptengine\encryptengine\main.c(529) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(543) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(580) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(609) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(621) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(708) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(784) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(798) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(880) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(884) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(985) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(1248) : warning C4133: 'function' : incompatible types - from 'UCHAR *' to 'PUSHORT'
+1>d:\encryptengine\encryptengine\main.c(1398) : warning C4133: 'function' : incompatible types - from 'UCHAR *' to 'PUSHORT'
+1>d:\encryptengine\encryptengine\main.c(1495) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(1626) : warning C4133: 'function' : incompatible types - from 'UCHAR *' to 'PUSHORT'
+1>d:\encryptengine\encryptengine\main.c(2098) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(2149) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(2247) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\main.c(2385) : warning C4090: 'function' : different 'const' qualifiers
+1>d:\encryptengine\encryptengine\common.h(14) : warning C4005: 'PAGE_SIZE' : macro redefinition
+1>d:\encryptengine\encryptengine\common.h(14) : warning C4005: 'PAGE_SIZE' : macro redefinition
+1>d:\encryptengine\encryptengine\common.h(14) : warning C4005: 'PAGE_SIZE' : macro redefinition
+1>d:\encryptengine\encryptengine\common.h(14) : warning C4005: 'PAGE_SIZE' : macro redefinition
+1>d:\encryptengine\encryptengine\common.h(14) : warning C4005: 'PAGE_SIZE' : macro redefinition
+1>d:\encryptengine\encryptengine\common.h(14) : warning C4005: 'PAGE_SIZE' : macro redefinition

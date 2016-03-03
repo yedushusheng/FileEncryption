@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+<OACRDEFECTCOUNT>1</OACRDEFECTCOUNT>
+<OACRERRORCOUNT>0</OACRERRORCOUNT>
+<DEFECT _seq="1"><SFA><LINE>88</LINE><COLUMN>0</COLUMN><FILENAME>message.c</FILENAME><FILEPATH>d:\encryptengine\encryptengine\</FILEPATH></SFA><DEFECTCODE>28172</DEFECTCODE><DESCRIPTION>The function 'Msg_DisconnectNotifyCallback' has PAGED_CODE or PAGED_CODE_LOCKED but is not declared to be in a paged segment.</DESCRIPTION><FUNCTION>Msg_DisconnectNotifyCallback</FUNCTION><FUNCLINE>88</FUNCLINE><PATH/></DEFECT>
+</DEFECTS>

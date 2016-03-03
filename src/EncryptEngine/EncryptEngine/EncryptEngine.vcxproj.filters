@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{930610a1-6eac-44d2-8aba-f4a9f3c72e16}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{6c161a9e-c0e1-408b-94d7-61b562f66024}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{d33ddb3b-c747-42e2-863e-57df42a3e539}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cache.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ctx.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="file.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="message.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="process.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="process.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="cache.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ctx.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="file.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="message.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

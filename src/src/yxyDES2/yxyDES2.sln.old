@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "yxyDES2", "yxyDES2.vcproj", "{BD1B9693-6E6F-4D91-9823-E05FF20A427C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DES Tool", "DES Tool\DES Tool.vcproj", "{BE2F8D96-4593-462D-B3EB-4C653C9D2C46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD1B9693-6E6F-4D91-9823-E05FF20A427C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BD1B9693-6E6F-4D91-9823-E05FF20A427C}.Debug|Win32.Build.0 = Debug|Win32
+		{BD1B9693-6E6F-4D91-9823-E05FF20A427C}.Release|Win32.ActiveCfg = Release|Win32
+		{BD1B9693-6E6F-4D91-9823-E05FF20A427C}.Release|Win32.Build.0 = Release|Win32
+		{BE2F8D96-4593-462D-B3EB-4C653C9D2C46}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE2F8D96-4593-462D-B3EB-4C653C9D2C46}.Debug|Win32.Build.0 = Debug|Win32
+		{BE2F8D96-4593-462D-B3EB-4C653C9D2C46}.Release|Win32.ActiveCfg = Release|Win32
+		{BE2F8D96-4593-462D-B3EB-4C653C9D2C46}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

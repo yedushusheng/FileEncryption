@@ -1,0 +1,22 @@
+
+
+AMD64_OBJECTS=\
+ $(OBJ_PATH)\$O\main.obj \
+ $(OBJ_PATH)\$O\process.obj \
+ $(OBJ_PATH)\$O\file.obj \
+ $(OBJ_PATH)\$O\message.obj \
+ $(OBJ_PATH)\$O\cache.obj \
+ $(OBJ_PATH)\$O\lib.obj \
+ $(OBJ_PATH)\$O\ctx.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=c:\winddk\7600.16385.1
+OBJECT_ROOT=c:\winddk\7600.16385.1
+MAKEDIR_LOWERCASE=d:\encryptengine\encryptengine
+OBJ_PATH=d:\encryptengine\encryptengine
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0
