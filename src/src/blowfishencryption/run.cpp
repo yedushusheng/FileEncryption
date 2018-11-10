@@ -1,41 +1,41 @@
 #include "StdAfx.h"
 #include "run.h"
-#include "../Enc_Blowfish/Blowfish.h"//C/C++²»Í¬ÎÄ¼ş¼ĞÏÂ°üº¬Í·ÎÄ¼şµÄ·½·¨¼°#includeµÄÊ¹ÓÃÓĞÒ»¶¨µÄ¹æÔò
+#include "../Enc_Blowfish/Blowfish.h"//C/C++ä¸åŒæ–‡ä»¶å¤¹ä¸‹åŒ…å«å¤´æ–‡ä»¶çš„æ–¹æ³•åŠ#includeçš„ä½¿ç”¨æœ‰ä¸€å®šçš„è§„åˆ™
 #include "EncryptionInterface.h"
 #include "../yxyDES2/yxyDES2.h"
 run::run(void)
 {
 }
 
-
 run::~run(void)
 {
 }
-//¼ÓÃÜ½âÃÜµÄ¹ı³Ìº¯Êı
+
+//åŠ å¯†è§£å¯†çš„è¿‡ç¨‹å‡½æ•°
 void run::processing(bool mark,const char *source, const char *dest, const char *pwd)
 {  
 	
 	strcpy(_readFile,source);
 	strcpy(_writeFile,dest);
 	strcpy(_password,pwd);
-	FILE *readFile = fopen(_readFile, "rb");//ÎªÊäÈë´ò¿ª¶ş½øÖÆÎÄ¼ş
+	FILE *readFile = fopen(_readFile, "rb");//ä¸ºè¾“å…¥æ‰“å¼€äºŒè¿›åˆ¶æ–‡ä»¶
 	if (readFile == 0) 
-	 AfxMessageBox("²»ÄÜ´ò¿ªÒª¼ÓÃÜµÄÎÄ¼ş¡£");//´ò¿ªÊ§°Ü
+	 AfxMessageBox("ä¸èƒ½æ‰“å¼€è¦åŠ å¯†çš„æ–‡ä»¶ã€‚");//æ‰“å¼€å¤±è´¥
 
 	const size_t bufferSize = 64;
-	int barSize = 0;//¼ÇÂ¼¶ÁÈ¡ÎÄ¼şµÄ×Ö½ÚÊı
+	int barSize = 0;//è®°å½•è¯»å–æ–‡ä»¶çš„å­—èŠ‚æ•°
 
-	// reaching the end of the file and getting position = getting file size (bytes).»ñµÃÎÄ¼ş³¤¶È
-	fseek(readFile, 0, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
-	barSize = ftell(readFile);//ftellµÃµ½Á÷Ê½ÎÄ¼şµÄµ±Ç°¶ÁĞ´Î»ÖÃ,Æä·µ»ØÖµÊÇµ±Ç°¶ÁĞ´Î»ÖÃÆ«ÀëÎÄ¼şÍ·²¿µÄ×Ö½ÚÊı.
-	fseek(readFile, 0, SEEK_SET);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄÍ·Î²
+	// reaching the end of the file and getting position = getting file size (bytes).è·å¾—æ–‡ä»¶é•¿åº¦
+	fseek(readFile, 0, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
+	barSize = ftell(readFile);//ftellå¾—åˆ°æµå¼æ–‡ä»¶çš„å½“å‰è¯»å†™ä½ç½®,å…¶è¿”å›å€¼æ˜¯å½“å‰è¯»å†™ä½ç½®åç¦»æ–‡ä»¶å¤´éƒ¨çš„å­—èŠ‚æ•°.
+	fseek(readFile, 0, SEEK_SET);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„å¤´å°¾
 	if (barSize == -1) 
-    AfxMessageBox("²»ÄÜ»ñÈ¡ÎÄ¼ş³¤¶È");//²»ÄÜ»ñÈ¡ÎÄ¼ş×Ö½ÚÊı
+    AfxMessageBox("ä¸èƒ½è·å–æ–‡ä»¶é•¿åº¦");//ä¸èƒ½è·å–æ–‡ä»¶å­—èŠ‚æ•°
 	barSize = barSize / bufferSize;
 
 	FILE *writeFile = fopen(_writeFile, "wb");
 	if (writeFile == 0) 
-	AfxMessageBox("Ğ´ÈëÎÄ¼şÊ§°Ü.");//´ò¿ªÊ§°Ü
+	AfxMessageBox("å†™å…¥æ–‡ä»¶å¤±è´¥.");//æ‰“å¼€å¤±è´¥
 
 	char readBuffer[bufferSize];
 	char writeBuffer[bufferSize];
@@ -45,13 +45,13 @@ void run::processing(bool mark,const char *source, const char *dest, const char 
 	int encRet;
 	
 
-	while (!feof(readFile))//feof(fp)ÓĞÁ½¸ö·µ»ØÖµ:Èç¹ûÓöµ½ÎÄ¼ş½áÊø£¬º¯Êıfeof£¨fp£©µÄÖµÎª1£¬·ñÔòÎª0¡£
+	while (!feof(readFile))//feof(fp)æœ‰ä¸¤ä¸ªè¿”å›å€¼:å¦‚æœé‡åˆ°æ–‡ä»¶ç»“æŸï¼Œå‡½æ•°feofï¼ˆfpï¼‰çš„å€¼ä¸º1ï¼Œå¦åˆ™ä¸º0ã€‚
 	{
-		//readRet = fread(pInPut, sizeof(char), barSize, readFile);//¶ÁÈëbuffreSize¸ösizeof(char)´óĞ¡µÄ¿é¡£Ò²¾ÍÊÇbuffreSize×Ö½ÚÁË
+		//readRet = fread(pInPut, sizeof(char), barSize, readFile);//è¯»å…¥buffreSizeä¸ªsizeof(char)å¤§å°çš„å—ã€‚ä¹Ÿå°±æ˜¯buffreSizeå­—èŠ‚äº†
 		memset(readBuffer,0,64);
 		readRet = fread(readBuffer, sizeof(char), bufferSize, readFile);
 
-		if (mark==false) //Èç¹ûÎª½âÃÜ
+		if (mark==false) //å¦‚æœä¸ºè§£å¯†
 		{
 			
             memset(writeBuffer,0,64);
@@ -66,7 +66,7 @@ void run::processing(bool mark,const char *source, const char *dest, const char 
 				
 			}
 		}
-		else //Èç¹ûÎª¼ÓÃÜ
+		else //å¦‚æœä¸ºåŠ å¯†
 		{
 			//memset(readBuffer,0,1024);
 			memset(writeBuffer,0,64);
@@ -88,7 +88,8 @@ void run::processing(bool mark,const char *source, const char *dest, const char 
 	ZeroMemory(readBuffer, bufferSize);
 
 }
-//É¾³ıÔ´ÎÄ¼ş
+
+//åˆ é™¤æºæ–‡ä»¶
 void run::clearing(const char *source)
 {
 	CString strdeletefile=source;
@@ -101,30 +102,27 @@ void run::clearing(const char *source)
 
 }
 
-
-
-
-//»¹Ô­ÃÜÎÄ
+//è¿˜åŸå¯†æ–‡
 void run::rebackencfile(const char *mifilename,int len)
 {
-	FILE *readFile = fopen(mifilename, "rb");//ÎªÊäÈë´ò¿ª¶ş½øÖÆÎÄ¼ş
+	FILE *readFile = fopen(mifilename, "rb");//ä¸ºè¾“å…¥æ‰“å¼€äºŒè¿›åˆ¶æ–‡ä»¶
 	if (readFile == 0) 
-	AfxMessageBox("²»ÄÜ´ò¿ªÒª¼ì²âµÄÎÄ¼ş¡£");//´ò¿ªÊ§°Ü
-	fseek(readFile,-len, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½É¾³ıÄÚÈİÇ°
-	int barSize = ftell(readFile);//Òª¶ÁÈ¡µÄ×Ö½ÚÊı£¬ftellµÃµ½Á÷Ê½ÎÄ¼şµÄµ±Ç°¶ÁĞ´Î»ÖÃ,Æä·µ»ØÖµÊÇµ±Ç°¶ÁĞ´Î»ÖÃÆ«ÀëÎÄ¼şÍ·²¿µÄ×Ö½ÚÊı.
-	fseek(readFile, 0, SEEK_SET);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄÍ·²¿
+	AfxMessageBox("ä¸èƒ½æ‰“å¼€è¦æ£€æµ‹çš„æ–‡ä»¶ã€‚");//æ‰“å¼€å¤±è´¥
+	fseek(readFile,-len, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°åˆ é™¤å†…å®¹å‰
+	int barSize = ftell(readFile);//è¦è¯»å–çš„å­—èŠ‚æ•°ï¼Œftellå¾—åˆ°æµå¼æ–‡ä»¶çš„å½“å‰è¯»å†™ä½ç½®,å…¶è¿”å›å€¼æ˜¯å½“å‰è¯»å†™ä½ç½®åç¦»æ–‡ä»¶å¤´éƒ¨çš„å­—èŠ‚æ•°.
+	fseek(readFile, 0, SEEK_SET);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„å¤´éƒ¨
 	if (barSize == -1) 
-    AfxMessageBox("²»ÄÜ»ñÈ¡ÎÄ¼ş³¤¶È");//²»ÄÜ»ñÈ¡ÎÄ¼ş×Ö½ÚÊı
-	//int barSize1 = barSize*8;//ÎÄ¼şµÄÎ»Êı
-	 char *poutPut = ( char *)malloc(barSize);//¿ª±ÙÄÚ´æ´æ´¢¶ÁÈ¡ÎÄ¼ş
-	 fread(poutPut, sizeof(char), barSize, readFile);//¶ÁÈëbarSize¸ösizeof(char)´óĞ¡µÄ¿é¡£Ò²¾ÍÊÇbarSize×Ö½ÚÁË£¬barSizeÎªÎÄ¼ş×Ü³¤¶È£¬Ïàµ±ÓÚÒ»´ÎĞÔ¶ÁÈ¡Õû¸öÎÄ¼ş
+    AfxMessageBox("ä¸èƒ½è·å–æ–‡ä»¶é•¿åº¦");//ä¸èƒ½è·å–æ–‡ä»¶å­—èŠ‚æ•°
+	//int barSize1 = barSize*8;//æ–‡ä»¶çš„ä½æ•°
+	 char *poutPut = ( char *)malloc(barSize);//å¼€è¾Ÿå†…å­˜å­˜å‚¨è¯»å–æ–‡ä»¶
+	 fread(poutPut, sizeof(char), barSize, readFile);//è¯»å…¥barSizeä¸ªsizeof(char)å¤§å°çš„å—ã€‚ä¹Ÿå°±æ˜¯barSizeå­—èŠ‚äº†ï¼ŒbarSizeä¸ºæ–‡ä»¶æ€»é•¿åº¦ï¼Œç›¸å½“äºä¸€æ¬¡æ€§è¯»å–æ•´ä¸ªæ–‡ä»¶
      FILE *writeFile = fopen(mifilename, "wb");
 	if (writeFile == 0) 
-	AfxMessageBox("Ğ´ÈëÎÄ¼şÊ§°Ü.");//´ò¿ªÊ§°Ü
+	AfxMessageBox("å†™å…¥æ–‡ä»¶å¤±è´¥.");//æ‰“å¼€å¤±è´¥
 	fwrite(poutPut, sizeof(char), barSize, writeFile);
 	if (poutPut)
 	 {
-		free(poutPut);   //ÊÍ·ÅÄÚ´æ¿Õ¼ä
+		free(poutPut);   //é‡Šæ”¾å†…å­˜ç©ºé—´
 
 	 }
 	fflush(writeFile);
@@ -133,80 +131,75 @@ void run::rebackencfile(const char *mifilename,int len)
 	fclose(readFile);
 
 }
-//ÏòÃÜÎÄÖĞĞ´ÈëÃÜÂë
+
+//å‘å¯†æ–‡ä¸­å†™å…¥å¯†ç 
 void run::writemimatofile(const char *mifilename, const char* pwd)
 {
-	FILE *writeFile = fopen(mifilename, "a");//´ò¿ªĞ´ÈëÎÄ¼şµÄ·½Ê½Îªa£¬Ô­ÄÚÈİÈÔ´æÔÚ×¢ÒâĞ´Èë·½Ê½
+	FILE *writeFile = fopen(mifilename, "a");//æ‰“å¼€å†™å…¥æ–‡ä»¶çš„æ–¹å¼ä¸ºaï¼ŒåŸå†…å®¹ä»å­˜åœ¨æ³¨æ„å†™å…¥æ–¹å¼
 	if (writeFile == 0) 
-	AfxMessageBox("Ğ´ÈëÎÄ¼şÊ§°Ü.");//´ò¿ªÊ§°Ü
-	fseek(writeFile, 0, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
+	AfxMessageBox("å†™å…¥æ–‡ä»¶å¤±è´¥.");//æ‰“å¼€å¤±è´¥
+	fseek(writeFile, 0, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
 	
-	fwrite(pwd, sizeof(char), strlen(pwd), writeFile);//½«ÃÜÂëĞ´Èëµ½ÃÜÎÄÖĞ
+	fwrite(pwd, sizeof(char), strlen(pwd), writeFile);//å°†å¯†ç å†™å…¥åˆ°å¯†æ–‡ä¸­
 	
 	fflush(writeFile);
 	fclose(writeFile);
 	return ;
 }
-//´ÓÃÜÎÄÖĞ¶ÁÈ¡ÃÜÂë
+
+//ä»å¯†æ–‡ä¸­è¯»å–å¯†ç 
 CString run:: readmimafromfile(const char *mifilename)
 {
-	FILE *readFile = fopen(mifilename, "rb");//ÎªÊäÈë´ò¿ª¶ş½øÖÆÎÄ¼ş
+	FILE *readFile = fopen(mifilename, "rb");//ä¸ºè¾“å…¥æ‰“å¼€äºŒè¿›åˆ¶æ–‡ä»¶
 	if (readFile == 0) 
-	 AfxMessageBox("²»ÄÜ´ò¿ªÒª¼ì²âµÄÎÄ¼ş¡£");//´ò¿ªÊ§°Ü
+	 AfxMessageBox("ä¸èƒ½æ‰“å¼€è¦æ£€æµ‹çš„æ–‡ä»¶ã€‚");//æ‰“å¼€å¤±è´¥
 	
-	char mimalen[2];//Ò»¸ö×Ö·ûÒ»¸ö×Ö·ûµÄ¶ÁÈ¡£¬×Ö·ûÊı×éÄÚ´æ²»ÓÃÌ«´ó
-	int i=1;//¼ÇÂ¼¶ÁÈ¡µÄ×Ö·û×ÜÊı
+	char mimalen[2];//ä¸€ä¸ªå­—ç¬¦ä¸€ä¸ªå­—ç¬¦çš„è¯»å–ï¼Œå­—ç¬¦æ•°ç»„å†…å­˜ä¸ç”¨å¤ªå¤§
+	int i=1;//è®°å½•è¯»å–çš„å­—ç¬¦æ€»æ•°
 	
-	while(strcmp(mimalen,";")!=0)//Èç¹û¶Áµ½·Ö½â·û¡°£»¡±£¬¾ÍÍ£Ö¹¶ÁÈ¡£¬¼´¿ÉµÃµ½iµÄÖµ
+	while(strcmp(mimalen,";")!=0)//å¦‚æœè¯»åˆ°åˆ†è§£ç¬¦â€œï¼›â€ï¼Œå°±åœæ­¢è¯»å–ï¼Œå³å¯å¾—åˆ°içš„å€¼
 	{
-     fseek(readFile, -i, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
-	 fread(mimalen, sizeof(char),1, readFile);//Ò»¸ö×Ö·ûÒ»¸ö×Ö·ûµÄ¶ÁÈ¡
-	 mimalen[1]=0;//¼Ó×Ö·û´®½áÊø±êÖ¾
+     fseek(readFile, -i, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
+	 fread(mimalen, sizeof(char),1, readFile);//ä¸€ä¸ªå­—ç¬¦ä¸€ä¸ªå­—ç¬¦çš„è¯»å–
+	 mimalen[1]=0;//åŠ å­—ç¬¦ä¸²ç»“æŸæ ‡å¿—
 	 i++;
 	}
 	 
 	 char mima[100];
-	 fread(mima, sizeof(char),i-2, readFile);//´ÓÃÜÎÄÖĞ¶ÁÃÜÂë
-	 mima[i-2]=0;//¼Ó×Ö·û´®½áÊø±êÖ¾
+	 fread(mima, sizeof(char),i-2, readFile);//ä»å¯†æ–‡ä¸­è¯»å¯†ç 
+	 mima[i-2]=0;//åŠ å­—ç¬¦ä¸²ç»“æŸæ ‡å¿—
 	 fclose(readFile);
 	 
 	 return mima;
 }
-//´ÓÃÜÎÄÖĞ¶ÁÈ¡ÃÜÔ¿1
+
+//ä»å¯†æ–‡ä¸­è¯»å–å¯†é’¥1
 CString run::readmima1fromfile(const char *mifilename,int lenght)
 {
-	FILE *readFile = fopen(mifilename, "rb");//ÎªÊäÈë´ò¿ª¶ş½øÖÆÎÄ¼ş
+	FILE *readFile = fopen(mifilename, "rb");//ä¸ºè¾“å…¥æ‰“å¼€äºŒè¿›åˆ¶æ–‡ä»¶
 	if (readFile == 0) 
-	 AfxMessageBox("²»ÄÜ´ò¿ªÒª¼ì²âµÄÎÄ¼ş¡£");//´ò¿ªÊ§°Ü
+	 AfxMessageBox("ä¸èƒ½æ‰“å¼€è¦æ£€æµ‹çš„æ–‡ä»¶ã€‚");//æ‰“å¼€å¤±è´¥
 	
-	char mimalen[2];//Ò»¸ö×Ö·ûÒ»¸ö×Ö·ûµÄ¶ÁÈ¡£¬×Ö·ûÊı×éÄÚ´æ²»ÓÃÌ«´ó
-	int i=1;//¼ÇÂ¼¶ÁÈ¡µÄ×Ö·û×ÜÊı
+	char mimalen[2];//ä¸€ä¸ªå­—ç¬¦ä¸€ä¸ªå­—ç¬¦çš„è¯»å–ï¼Œå­—ç¬¦æ•°ç»„å†…å­˜ä¸ç”¨å¤ªå¤§
+	int i=1;//è®°å½•è¯»å–çš„å­—ç¬¦æ€»æ•°
 	
-	while(strcmp(mimalen,";")!=0)//Èç¹û¶Áµ½·Ö½â·û¡°£»¡±£¬¾ÍÍ£Ö¹¶ÁÈ¡£¬¼´¿ÉµÃµ½iµÄÖµ
+	while(strcmp(mimalen,";")!=0)//å¦‚æœè¯»åˆ°åˆ†è§£ç¬¦â€œï¼›â€ï¼Œå°±åœæ­¢è¯»å–ï¼Œå³å¯å¾—åˆ°içš„å€¼
 	{
-     fseek(readFile, -(lenght+1+i), SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
-	 fread(mimalen, sizeof(char),1, readFile);//Ò»¸ö×Ö·ûÒ»¸ö×Ö·ûµÄ¶ÁÈ¡
-	 mimalen[1]=0;//¼Ó×Ö·û´®½áÊø±êÖ¾
+     fseek(readFile, -(lenght+1+i), SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
+	 fread(mimalen, sizeof(char),1, readFile);//ä¸€ä¸ªå­—ç¬¦ä¸€ä¸ªå­—ç¬¦çš„è¯»å–
+	 mimalen[1]=0;//åŠ å­—ç¬¦ä¸²ç»“æŸæ ‡å¿—
 	 i++;
 	}
 	 
 	 char mima[100];
-	 fread(mima, sizeof(char),i-2, readFile);//´ÓÃÜÎÄÖĞ¶ÁÃÜÂë
-	 mima[i-2]=0;//¼Ó×Ö·û´®½áÊø±êÖ¾
+	 fread(mima, sizeof(char),i-2, readFile);//ä»å¯†æ–‡ä¸­è¯»å¯†ç 
+	 mima[i-2]=0;//åŠ å­—ç¬¦ä¸²ç»“æŸæ ‡å¿—
 	 fclose(readFile);
 	 
 	 return mima;
 }
 
-
-
-
-
-
-
-
-
-//3desÎÄ¼ş¼Ó½âÃÜ´¦Àíº¯Êı
+//3desæ–‡ä»¶åŠ è§£å¯†å¤„ç†å‡½æ•°
 void run:: desprocess(bool mark,const char *source, const char *dest, const char *pwd1,const char *pwd2)
 {
 	strcpy(_readFile,source);
@@ -216,34 +209,34 @@ void run:: desprocess(bool mark,const char *source, const char *dest, const char
 	char buff[8] = {0};
 	size_t readRet = 0;
 
-	FILE *readFile = fopen(_readFile, "rb");//ÎªÊäÈë´ò¿ª¶ş½øÖÆÎÄ¼ş
+	FILE *readFile = fopen(_readFile, "rb");//ä¸ºè¾“å…¥æ‰“å¼€äºŒè¿›åˆ¶æ–‡ä»¶
 	if (readFile == 0) 
-	 AfxMessageBox("²»ÄÜ´ò¿ªÒª¼ÓÃÜµÄÎÄ¼ş¡£");//´ò¿ªÊ§°Ü
-	int barSize = 0;//¼ÇÂ¼¶ÁÈ¡ÎÄ¼şµÄ×Ö½ÚÊı
-	// reaching the end of the file and getting position = getting file size (bytes).»ñµÃÎÄ¼ş³¤¶È
-	fseek(readFile, 0, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
-	barSize = ftell(readFile);//ftellµÃµ½Á÷Ê½ÎÄ¼şµÄµ±Ç°¶ÁĞ´Î»ÖÃ,Æä·µ»ØÖµÊÇµ±Ç°¶ÁĞ´Î»ÖÃÆ«ÀëÎÄ¼şÍ·²¿µÄ×Ö½ÚÊı.
+	 AfxMessageBox("ä¸èƒ½æ‰“å¼€è¦åŠ å¯†çš„æ–‡ä»¶ã€‚");//æ‰“å¼€å¤±è´¥
+	int barSize = 0;//è®°å½•è¯»å–æ–‡ä»¶çš„å­—èŠ‚æ•°
+	// reaching the end of the file and getting position = getting file size (bytes).è·å¾—æ–‡ä»¶é•¿åº¦
+	fseek(readFile, 0, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
+	barSize = ftell(readFile);//ftellå¾—åˆ°æµå¼æ–‡ä»¶çš„å½“å‰è¯»å†™ä½ç½®,å…¶è¿”å›å€¼æ˜¯å½“å‰è¯»å†™ä½ç½®åç¦»æ–‡ä»¶å¤´éƒ¨çš„å­—èŠ‚æ•°.
 	if(mark==true)
-	filldes(_readFile,barSize);//Ìî³ä¡°£»¡±
-	fseek(readFile, 0, SEEK_SET);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄÍ·Î²
+	filldes(_readFile,barSize);//å¡«å……â€œï¼›â€
+	fseek(readFile, 0, SEEK_SET);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„å¤´å°¾
 	if (barSize == -1) 
-    AfxMessageBox("²»ÄÜ»ñÈ¡ÎÄ¼ş³¤¶È");//²»ÄÜ»ñÈ¡ÎÄ¼ş×Ö½ÚÊı
+    AfxMessageBox("ä¸èƒ½è·å–æ–‡ä»¶é•¿åº¦");//ä¸èƒ½è·å–æ–‡ä»¶å­—èŠ‚æ•°
 
 	FILE *writeFile = fopen(_writeFile, "wb");
 	if (writeFile == 0) 
-	AfxMessageBox("Ğ´ÈëÎÄ¼şÊ§°Ü.");//´ò¿ªÊ§°Ü
+	AfxMessageBox("å†™å…¥æ–‡ä»¶å¤±è´¥.");//æ‰“å¼€å¤±è´¥
     DES.InitializeKey(_password1,0);
 	DES.InitializeKey(_password2,1);
-	if(mark==true)//Èç¹ûÎª¼ÓÃÜ
+	if(mark==true)//å¦‚æœä¸ºåŠ å¯†
 	{
 		while(!feof(readFile))
 		{
 			memset(buff,0,8);
-			readRet=fread(buff,sizeof(char),8,readFile);//¼ÇÂ¼¶ÁÈ¡µÄ×Ö½ÚÊı
+			readRet=fread(buff,sizeof(char),8,readFile);//è®°å½•è¯»å–çš„å­—èŠ‚æ•°
 			DES.EncryptData(buff, 0);
 			DES.DecryptData(DES.GetCiphertextInBytes(), 1);
 			DES.EncryptData(DES.GetPlaintext(), 0);
-			fwrite(DES.GetCiphertextInBytes(),sizeof(char),readRet,writeFile);//readRet¶ÁÁË¶àÉÙ£¬¾ÍĞ´Èë¶àÉÙ
+			fwrite(DES.GetCiphertextInBytes(),sizeof(char),readRet,writeFile);//readRetè¯»äº†å¤šå°‘ï¼Œå°±å†™å…¥å¤šå°‘
 		}
 
 		fclose(readFile);
@@ -251,30 +244,31 @@ void run:: desprocess(bool mark,const char *source, const char *dest, const char
 		fclose(writeFile);
 		return;
 	}
-	else if(mark==false)//Èç¹ûÎª½âÃÜ
+	else if(mark==false)//å¦‚æœä¸ºè§£å¯†
 	{
 		while(!feof(readFile))
 		{
 			memset(buff,0,8);
-			readRet=fread(buff,sizeof(char),8,readFile);//¼ÇÂ¼¶ÁÈ¡µÄ×Ö½ÚÊı
+			readRet=fread(buff,sizeof(char),8,readFile);//è®°å½•è¯»å–çš„å­—èŠ‚æ•°
 			//D(key0)-E(key1)-D(key0)
 			DES.DecryptData(buff, 0);
 			DES.EncryptData(DES.GetPlaintext(), 1);
 			DES.DecryptData(DES.GetCiphertextInBytes(), 0);
-			fwrite(DES.GetPlaintext(),sizeof(char),readRet,writeFile);//readRet¶ÁÁË¶àÉÙ£¬¾ÍĞ´Èë¶àÉÙ
+			fwrite(DES.GetPlaintext(),sizeof(char),readRet,writeFile);//readRetè¯»äº†å¤šå°‘ï¼Œå°±å†™å…¥å¤šå°‘
 			
 		}
 		fclose(readFile);
 		fflush(writeFile);
 		fclose(writeFile);
-		int fill=readfill(_writeFile);//¶ÁÈ¡Ìî³äÎ»Êı
-		if(fill>1)//ÅĞ¶ÏÊÇ·ñ½øĞĞÁËÌî³ä
-		rebackencfile(_writeFile,fill-2);//»¹Ô­Ã÷ÎÄ
+		int fill=readfill(_writeFile);//è¯»å–å¡«å……ä½æ•°
+		if(fill>1)//åˆ¤æ–­æ˜¯å¦è¿›è¡Œäº†å¡«å……
+		rebackencfile(_writeFile,fill-2);//è¿˜åŸæ˜æ–‡
 		return;
 	}
 
 }
-//3DESÌî³ä
+
+//3DESå¡«å……
 void run::filldes(const char *mifilename,int len)
 {
 	if(len%8==0)
@@ -282,7 +276,7 @@ void run::filldes(const char *mifilename,int len)
 	int fillnum=8-len%8;
 	FILE *writeFile = fopen(mifilename, "a");
 	if (writeFile == 0) 
-		AfxMessageBox("Ğ´ÈëÎÄ¼şÊ§°Ü.");//´ò¿ªÊ§°Ü
+		AfxMessageBox("å†™å…¥æ–‡ä»¶å¤±è´¥.");//æ‰“å¼€å¤±è´¥
 	//char fillcontent[8]={0};
 	//memset(fillcontent,0,9);
 	CString fillcontent=";";
@@ -298,22 +292,23 @@ void run::filldes(const char *mifilename,int len)
 	fclose(writeFile);
 	return;
 }
-//¶ÁÈ¡Ìî³äÎ»Êı
+
+//è¯»å–å¡«å……ä½æ•°
 int run:: readfill(const char *mingfilename)
 {
-	FILE *readFile = fopen(mingfilename, "rb");//ÎªÊäÈë´ò¿ª¶ş½øÖÆÎÄ¼ş
+	FILE *readFile = fopen(mingfilename, "rb");//ä¸ºè¾“å…¥æ‰“å¼€äºŒè¿›åˆ¶æ–‡ä»¶
 	if (readFile == 0) 
-		AfxMessageBox("²»ÄÜ´ò¿ªÒª¼ÓÃÜµÄÎÄ¼ş¡£");//´ò¿ªÊ§°Ü
-	char mimalen[2]={0};//Ò»¸ö×Ö·ûÒ»¸ö×Ö·ûµÄ¶ÁÈ¡£¬×Ö·ûÊı×éÄÚ´æ²»ÓÃÌ«´ó
-	int i=1;//¼ÇÂ¼¶ÁÈ¡µÄ×Ö·û×ÜÊı
-	//fseek(readFile,-i, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
-	    fseek(readFile,-1, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
-		fread(mimalen, sizeof(char),1, readFile);//Ò»¸ö×Ö·ûÒ»¸ö×Ö·ûµÄ¶ÁÈ¡
-	while(strcmp(mimalen,";")==0)//Èç¹û¶Áµ½²»ÊÇ¡°£»¡±Ê±£¬¾ÍÍ£Ö¹¶ÁÈ¡£¬¼´¿ÉµÃµ½iµÄÖµ
+		AfxMessageBox("ä¸èƒ½æ‰“å¼€è¦åŠ å¯†çš„æ–‡ä»¶ã€‚");//æ‰“å¼€å¤±è´¥
+	char mimalen[2]={0};//ä¸€ä¸ªå­—ç¬¦ä¸€ä¸ªå­—ç¬¦çš„è¯»å–ï¼Œå­—ç¬¦æ•°ç»„å†…å­˜ä¸ç”¨å¤ªå¤§
+	int i=1;//è®°å½•è¯»å–çš„å­—ç¬¦æ€»æ•°
+	//fseek(readFile,-i, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
+	    fseek(readFile,-1, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
+		fread(mimalen, sizeof(char),1, readFile);//ä¸€ä¸ªå­—ç¬¦ä¸€ä¸ªå­—ç¬¦çš„è¯»å–
+	while(strcmp(mimalen,";")==0)//å¦‚æœè¯»åˆ°ä¸æ˜¯â€œï¼›â€æ—¶ï¼Œå°±åœæ­¢è¯»å–ï¼Œå³å¯å¾—åˆ°içš„å€¼
 	{
-		fseek(readFile,-i, SEEK_END);//½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şµÄ½áÎ²
-		fread(mimalen, sizeof(char),1, readFile);//Ò»¸ö×Ö·ûÒ»¸ö×Ö·ûµÄ¶ÁÈ¡
-		mimalen[1]=0;//¼Ó×Ö·û´®½áÊø±êÖ¾
+		fseek(readFile,-i, SEEK_END);//å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶çš„ç»“å°¾
+		fread(mimalen, sizeof(char),1, readFile);//ä¸€ä¸ªå­—ç¬¦ä¸€ä¸ªå­—ç¬¦çš„è¯»å–
+		mimalen[1]=0;//åŠ å­—ç¬¦ä¸²ç»“æŸæ ‡å¿—
 		i++;
 	}
 	fclose(readFile);
