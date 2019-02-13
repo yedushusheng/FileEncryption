@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="yxyDES2">
+</Property><Property Name="解决方案文件" Value="C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\yxyDES2.sln">
+</Property><Property Name="用户选项文件" Value="C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\yxyDES2.suo">
+</Property><Property Name="Date" Value="2015年3月4日 星期三">
+</Property><Property Name="Time" Value="17:10">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="yxyDES2.sln" Description="文件已成功备份为 C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\yxyDES2.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="yxyDES2.suo" Description="文件已成功备份为 C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\yxyDES2.suo.old">
+</Event><Event ErrorLevel="0" Project="yxyDES2" Source="yxyDES2.vcproj" Description="Converting project file 'C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\yxyDES2.vcproj'.">
+</Event><Event ErrorLevel="1" Project="yxyDES2" Source="yxyDES2.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="yxyDES2" Source="yxyDES2.vcproj" Description="Done converting to new project file 'C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\yxyDES2.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="yxyDES2" Source="yxyDES2.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DES Tool" Source="DES Tool\DES Tool.vcproj" Description="Converting project file 'C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\DES Tool\DES Tool.vcproj'.">
+</Event><Event ErrorLevel="1" Project="DES Tool" Source="DES Tool\DES Tool.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="DES Tool" Source="DES Tool\DES Tool.vcproj" Description="Done converting to new project file 'C:\Users\jiangchao001\Desktop\项目实训\yxyDES2_MFC\DES Tool\DES Tool.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="DES Tool" Source="DES Tool\DES Tool.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="yxyDES2.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="yxyDES2.sln" Description="Converted">
+</Event></UpgradeLog>

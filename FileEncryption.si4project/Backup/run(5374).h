@@ -1,5 +1,5 @@
 #pragma once
-#include "../myDES2/myDES2.h"
+#include "../yxyDES2/yxyDES2.h"
 class run
 {
 public:
@@ -21,7 +21,7 @@ public:
 	
     char _password1[100];
 	char _password2[100];
-	myDES2 DES;
+	yxyDES2 DES;
 
 };
 

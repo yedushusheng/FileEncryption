@@ -2,7 +2,7 @@
 #include "run.h"
 #include "../Enc_Blowfish/Blowfish.h"//C/C++不同文件夹下包含头文件的方法及#include的使用有一定的规则
 #include "EncryptionInterface.h"
-#include "../myDES2/myDES2.h"
+#include "../yxyDES2/yxyDES2.h"
 run::run(void)
 {
 }

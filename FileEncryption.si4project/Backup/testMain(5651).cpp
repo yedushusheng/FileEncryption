@@ -1,20 +1,20 @@
-// myDES2.cpp : 定义控制台应用程序的入口点。
+// yxyDES2.cpp : 定义控制台应用程序的入口点。
 //
 
 #include "stdafx.h"
-#include "myDES2.h"
+#include "yxyDES2.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	myDES2* my_des = new myDES2();
+	yxyDES2* my_des = new yxyDES2();
 	//set key
 	my_des->InitializeKey("12345678",0);
 	printf("key is :\n 12345678 \n\n");
 
 	//----------------------stand test------------------------------
 	//encrypt
-	printf("Test 8 bytes:\n myDES2. \n\n");
-	my_des->EncryptData("myDES2.",0);
+	printf("Test 8 bytes:\n yxyDES2. \n\n");
+	my_des->EncryptData("yxyDES2.",0);
 
 	//Ciphertext in bin
 	printf("Ciphertext in bin:\n %s\n\n",my_des->GetCiphertextInBinary());
@@ -29,7 +29,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("After decrypt:\n %s\n\n",my_des->GetPlaintext());
 
 	//----------------------------test any lenth---------------------------
-	char* anyLenTest = "any length test of myDES2! a test, a test!";
+	char* anyLenTest = "any length test of yxyDES2! a test, a test!";
 	printf("Test anylenth :\n %s\n\n",anyLenTest);
 	//encrypt
 	my_des->EncryptAnyLength(anyLenTest,strlen(anyLenTest),0);
