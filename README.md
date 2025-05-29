@@ -1,23 +1,31 @@
-# FileEncryption
-基于3DES、blowfish、MD5的文件加密/解密系统
+## 🔐 File Encryption/Decryption System Based on 3DES, Blowfish, and MD5
 
-使用方法：
-1、选择待加密的文件；
-2、选择加密方式：单一加密方式/两次加密方式
-3、执行加密
+### ✅ Usage Instructions
 
-说明：
-一次加密可以分别采用3DES或者blowfish，连续加密采用先3DES后blowfish的方式
-除了采用上述对称加密算法，还可以采用驱动加密，界面上有专门的开关
+1. Select the file to be encrypted.
+2. Choose the encryption mode:
 
-存在问题：
-1、3DES加密与blowfish不匹配；
-2、MD5校验值追加到密文尾部并不合理；
-3、采用两次加密时，在解密时解密顺序需要与加密相反。
+   * **Single encryption**: Use either 3DES or Blowfish.
+   * **Double encryption**: Use **3DES first**, followed by **Blowfish**.
+3. Execute the encryption process.
 
-待改善：
-1、秘钥保存方式修改，可增加MySQL存储；
-2、两次加密方式混合成单一的加密比较好；
-3、优化代码，提升速度，尽量采用多线程或者进行数据分割优化。
+Additionally, a **driver-based encryption** method is available, which can be toggled via a dedicated switch in the UI.
 
+---
 
+### ❗ Existing Issues
+
+1. **3DES encryption is not compatible with Blowfish**, causing problems in double encryption scenarios.
+2. **Appending the MD5 checksum at the end of the ciphertext** is not a proper or secure method.
+3. When using **double encryption**, the **decryption order must be the reverse** of the encryption order.
+
+---
+
+### 🔧 Improvements to Be Made
+
+1. **Key storage method** should be updated — for example, by **storing keys in a MySQL database**.
+2. **Double encryption** could be **integrated into a unified encryption scheme** to simplify the process.
+3. **Optimize code performance**:
+
+   * Improve speed through **multithreading**.
+   * Use **data segmentation** to enhance encryption/decryption efficiency.
